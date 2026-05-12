@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description"
+        content="Video2GUI: Synthesizing Large-Scale Interaction Trajectories for Generalized GUI Agent Pretraining">
+    <meta name="keywords"
+        content="Video2GUI, WildGUI, GUI Agent, Pretraining, Interaction Trajectories, Tutorial Videos, Multimodal LLM">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Video2GUI: Synthesizing Large-Scale Interaction Trajectories for Generalized GUI Agent Pretraining</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+</head>
+
+<body>
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-widescreen">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="subtitle is-3 publication-title">
+                            <b>Video2GUI:</b> Synthesizing Large-Scale Interaction Trajectories
+                            for Generalized GUI Agent Pretraining
+                        </h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://github.com/WeiminXiong"
+                                    target="_blank">Weimin Xiong</a><sup>1,2,&#8224;</sup>,
+                            </span>
+                            <span class="author-block">Shuhao Gu<sup>2</sup>,</span>
+                            <span class="author-block">Bowen Ye<sup>1,2</sup>,</span>
+                            <span class="author-block">Zihao Yue<sup>2,4</sup>,</span>
+                            <span class="author-block">Lei Li<sup>2,3</sup>,</span>
+                            <span class="author-block">Feifan Song<sup>1</sup>,</span>
+                            <span class="author-block">Sujian Li<sup>1,&#8225;</sup>,</span>
+                            <span class="author-block">Hao Tian<sup>2,&#8225;</sup></span>
+                        </div>
+
+                        <br>
+
+                        <div class="is-size-6 publication-authors">
+                            <span class="author-block">
+                                <sup>1</sup>State Key Laboratory of Multimedia Information Processing,
+                                School of Computer Science, Peking University
+                            </span><br>
+                            <span class="author-block"><sup>2</sup>LLM-Core, Xiaomi</span>&nbsp;&nbsp;&nbsp;
+                            <span class="author-block"><sup>3</sup>The University of Hong Kong</span>&nbsp;&nbsp;&nbsp;
+                            <span class="author-block"><sup>4</sup>Renmin University of China</span>
+                        </div>
+
+                        <br>
+
+                        <div class="is-size-6 thanks">
+                            <span class="author-block"><sup>&#8224;</sup>Work done during internship at Xiaomi Corporation.</span><br>
+                            <span class="author-block"><sup>&#8225;</sup><b>Co-corresponding authors</b>.</span><br>
+                            <span class="author-block">Contact:</span>
+                            <span class="author-block"><a href="mailto:wmxiong@pku.edu.cn">wmxiong@pku.edu.cn</a>,</span>
+                            <span class="author-block"><a href="mailto:lisujian@pku.edu.cn">lisujian@pku.edu.cn</a></span>
+                        </div>
+
+                        <br>
+
+                        <div class="is-size-6 thanks">
+                            <span class="author-block"><b>Accepted at ICML 2026.</b></span>
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- arXiv placeholder -->
+                                <span class="link-block">
+                                    <a href="#" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>
+                                <!-- Code Link -->
+                                <span class="link-block">
+                                    <a href="https://github.com/WeiminXiong/Video2GUI" target="_blank"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+                                <!-- Dataset placeholder -->
+                                <span class="link-block">
+                                    <a href="#" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fas fa-database"></i>
+                                        </span>
+                                        <span>WildGUI</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="content has-text-centered">
+                <img src="static/images/teaser_figure.png" alt="Video2GUI Pipeline Overview" width="95%" />
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section hero is-light">
+        <div class="container is-max-desktop">
+            <!-- Abstract -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            Recent advances in multimodal large language models have driven growing interest in
+                            graphical user interface (GUI) agents, yet their generalization remains constrained by
+                            the scarcity of large-scale training data spanning diverse real-world applications.
+                            Existing datasets rely heavily on costly manual annotations and are typically confined
+                            to narrow domains.
+                            To address this challenge, we propose <b>Video2GUI</b>, a fully automated framework
+                            that extracts grounded GUI interaction trajectories directly from unlabeled Internet
+                            videos. Video2GUI employs a coarse-to-fine filtering strategy to identify high-quality
+                            GUI tutorial videos and converts them into structured agent trajectories.
+                            Applying this pipeline to 500 million video metadata entries, we construct
+                            <b>WildGUI</b>, a large-scale dataset containing 12 million interaction trajectories
+                            spanning over 1,500 applications and websites.
+                            Pre-training Qwen2.5-VL and Mimo-VL on WildGUI yields consistent improvements of
+                            5&ndash;20% across multiple GUI grounding and action benchmarks, matching or surpassing
+                            state-of-the-art performance. We will release both the WildGUI dataset and the
+                            Video2GUI pipeline to support future research of GUI agents.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Method Overview</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            Video2GUI is a fully automated, three-stage pipeline that turns unlabeled Internet
+                            videos into grounded GUI interaction trajectories suitable for pretraining
+                            generalized GUI agents.
+                        </p>
+                    </div>
+                    <img id="model" width="100%" src="static/images/method_diagram.png"
+                        alt="Video2GUI three-stage pipeline">
+
+                    <br><br>
+
+                    <div class="content has-text-justified">
+                        <ul>
+                            <li><strong>(A) Coarse-to-Fine Video Filtering.</strong> Starting from 500M+ raw
+                                Internet videos, we first apply meta-info filtering with a fine-tuned Qwen2.5-7B
+                                classifier (trained on DeepSeek-V3 annotations) to select &sim;20M candidate
+                                videos. We then run a fine-grained, content-based scorer that rates instruction
+                                clarity, topic relevance, and screen recording quality, yielding 4.2M high-quality
+                                tutorial videos (&sim;300k hours).
+                            </li>
+                            <li><strong>(B) Trajectory Extraction.</strong> Each video is split into &le;4-minute
+                                segments and processed by Gemini-3-Pro under a sliding-window strategy with
+                                historical context, producing instruction&ndash;trajectory pairs
+                                <i>(u<sup>(k)</sup>, e<sup>(k)</sup>)</i> with task instructions, action
+                                timestamps, action details, and visually grounded low-level instructions.
+                            </li>
+                            <li><strong>(C) Action Spatial Grounding.</strong> For each interaction at timestamp
+                                <i>t</i>, we feed Gemini-3-Pro a triplet of high-resolution screenshots
+                                <i>{o<sub>t-0.5s</sub>, o<sub>t</sub>, o<sub>t+0.5s</sub>}</i> together with the
+                                low-level instruction and predict the precise grounding target <i>b<sub>t</sub> =
+                                    (x<sub>1</sub>, y<sub>1</sub>, x<sub>2</sub>, y<sub>2</sub>)</i>. Manual
+                                verification on 200 sampled actions shows over <b>95%</b> are correctly
+                                parameterized.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">WildGUI Dataset</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            Applying Video2GUI to 500&thinsp;M video metadata entries yields <b>WildGUI</b>,
+                            the largest open-source GUI pre-training dataset to date. WildGUI offers comprehensive
+                            coverage across <b>website, mobile, and desktop</b> platforms, with over
+                            <b>12M trajectories</b> and <b>124M images</b>, spanning more than 1,500 applications.
+                            The table below compares WildGUI with prior datasets in terms of platform coverage,
+                            scale, and instruction granularity.
+                        </p>
+                    </div>
+                    <img src="static/images/dataset_comparison.png" alt="Comparison with existing GUI datasets"
+                        width="100%">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Experimental Results</h2>
+
+                    <h3 class="title is-4">GUI Grounding: ScreenSpot-Pro &amp; OSWorld-G</h3>
+                    <div class="content has-text-justified">
+                        <p>
+                            We evaluate WildGUI by continually pre-training Qwen2.5-VL-7B and Mimo-VL-7B on
+                            our dataset and measuring their performance on <b>ScreenSpot-Pro</b> and
+                            <b>OSWorld-G</b>. After WildGUI pre-training, both base models match or surpass the
+                            best open-source GUI grounding models, with absolute gains of <b>+15.7</b> /
+                            <b>+26.4</b> on ScreenSpot-Pro / OSWorld-G for Qwen2.5-VL-7B, and <b>+15.7</b> /
+                            <b>+12.9</b> for Mimo-VL-7B.
+                        </p>
+                    </div>
+                    <img src="static/images/main_results.png"
+                        alt="Main results on ScreenSpot-Pro and OSWorld-G" width="100%">
+
+                    <br><br><br>
+
+                    <h3 class="title is-4">Mobile GUI Action: AndroidControl &amp; CAGUI</h3>
+                    <div class="content has-text-justified">
+                        <p>
+                            We further evaluate on the mobile-GUI action benchmarks <b>AndroidControl</b> and
+                            <b>CAGUI</b>. Continual pre-training on WildGUI delivers consistent improvements on
+                            both benchmarks, demonstrating that the trajectories synthesized from tutorial
+                            videos transfer beyond grounding to full action prediction across diverse mobile
+                            applications.
+                        </p>
+                    </div>
+                    <img src="static/images/table3_androidcontrol.png"
+                        alt="Results on AndroidControl and CAGUI benchmarks" width="100%">
+
+                    <br><br><br>
+
+                    <h3 class="title is-4">Online Agent Evaluation: OSWorld &amp; AndroidWorld</h3>
+                    <div class="content has-text-justified">
+                        <p>
+                            Beyond static grounding and action benchmarks, we evaluate the WildGUI-pretrained
+                            models in fully interactive online environments &mdash; <b>OSWorld</b> for desktop
+                            tasks and <b>AndroidWorld</b> for mobile tasks. WildGUI pre-training substantially
+                            boosts task success rate in both environments, validating the practical utility of
+                            our dataset for downstream agent deployment.
+                        </p>
+                    </div>
+                    <img src="static/images/figure2_osworld_androidworld.png"
+                        alt="Online evaluation on OSWorld and AndroidWorld" width="60%">
+
+                    <br><br><br>
+
+                    <h3 class="title is-4">Scaling Behavior</h3>
+                    <div class="content has-text-justified">
+                        <p>
+                            Performance scales smoothly with the amount of WildGUI pre-training data. As the
+                            number of trajectories grows, downstream accuracy continues to improve without
+                            saturation, underscoring the value of building large-scale GUI corpora and
+                            suggesting further gains are achievable as more videos are incorporated.
+                        </p>
+                    </div>
+                    <img src="static/images/figure3_scaling.png"
+                        alt="Impact of scaling pre-training data on performance" width="50%">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>@inproceedings{
+anonymous2026videogui,
+title={Video2{GUI}: Synthesizing Large-Scale Interaction Trajectories for Generalized {GUI} Agent Pretraining},
+author={Anonymous},
+booktitle={Forty-third International Conference on Machine Learning},
+year={2026},
+url={https://openreview.net/forum?id=kYVjfc56RT}
+}</code></pre>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <a class="icon-link" href="https://github.com/WeiminXiong/Video2GUI" target="_blank"
+                    class="external-link">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p>
+                            Released under the <a target="_blank" href="./LICENSE">Apache License 2.0</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
