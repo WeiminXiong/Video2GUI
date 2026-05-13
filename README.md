@@ -1,6 +1,6 @@
 # Video2GUI
 
-This is the repository for **Video2GUI**. Our **WildGUI** dataset will be released soon.
+This is the repository for Video2GUI. Our **WildGUI** dataset will be released soon.
 
 # License
 
