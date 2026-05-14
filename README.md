@@ -1,6 +1,6 @@
 # Video2GUI
 
-This is the repository for Video2GUI. Our **WildGUI** dataset will be released soon.
+This repository contains the code for the paper "Video2GUI: Synthesizing Large-Scale Interaction Trajectories for Generalized GUI Agent Pretraining". Our **WildGUI** dataset will be released soon.
 
 # License
 
