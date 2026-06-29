@@ -36,8 +36,8 @@ To address this, we propose **Video2GUI**, a fully automated framework that extr
 
 We will present Video2GUI as a **poster** at ICML 2026 — come and chat with us!
 
-- **🗓️ When:** Thursday, July 9, 2026 · 9:30 AM – 11:15 AM CST
-- **📍 Where:** Hall A
+- **🗓️ When:** Tuesday, July 7, 2026 · 2:00 PM – 3:45 PM CST
+- **📍 Where:** Hall A #4603
 
 ## 🧭 Method Overview
 
